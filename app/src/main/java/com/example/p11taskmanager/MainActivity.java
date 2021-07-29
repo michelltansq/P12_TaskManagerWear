@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         lv.setAdapter(aa);
 
         DBHelper dbh = new DBHelper(MainActivity.this);
+        al.clear();
         al = dbh.getTasks();
         dbh.close();
         aa.notifyDataSetChanged();
@@ -42,5 +44,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, AddActivity.class));
             }
         });
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        DBHelper dbh = new DBHelper(MainActivity.this);
+        al.clear();
+        al = dbh.getTasks();
+        dbh.close();
+        aa.notifyDataSetChanged();
     }
 }
