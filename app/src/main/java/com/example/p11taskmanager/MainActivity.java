@@ -31,13 +31,7 @@ public class MainActivity extends AppCompatActivity {
         lv = findViewById(R.id.lv);
         aa = new ArrayAdapter<Task>(this, android.R.layout.simple_list_item_1, al);
         lv.setAdapter(aa);
-
-        DBHelper dbh = new DBHelper(MainActivity.this);
-        al.clear();
-        al = dbh.getTasks();
-        dbh.close();
-        aa.notifyDataSetChanged();
-
+        
         btnAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         al.clear();
         al = dbh.getTasks();
         dbh.close();
-        aa.notifyDataSetChanged();
+        aa = new ArrayAdapter<Task>(this, android.R.layout.simple_list_item_1, al);
+        lv.setAdapter(aa);
     }
 }
