@@ -31,18 +31,10 @@ public class MainActivity extends AppCompatActivity {
         aa = new ArrayAdapter<Task>(this, android.R.layout.simple_list_item_1, al);
         lv.setAdapter(aa);
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                DBHelper dbh = new DBHelper(MainActivity.this);
-                al = dbh.getTasks();
-                dbh.close();
-                for(Task i: al) {
-                    aa.add("1. " + i.getName() + "/n"+ i.getDescription());
-                }
-                aa.notifyDataSetChanged();
-            }
-        });
+        DBHelper dbh = new DBHelper(MainActivity.this);
+        al = dbh.getTasks();
+        dbh.close();
+        aa.notifyDataSetChanged();
 
         btnAddTask.setOnClickListener(new View.OnClickListener() {
             @Override
