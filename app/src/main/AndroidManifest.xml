@@ -14,7 +14,7 @@
             android:name=".TaskReceiver"
             android:enabled="true"
             android:exported="true"></receiver>
-
+        <activity android:name=".AddActivity"/>
         <activity android:name=".AddActivity"/>
 
         <activity android:name=".MainActivity">
