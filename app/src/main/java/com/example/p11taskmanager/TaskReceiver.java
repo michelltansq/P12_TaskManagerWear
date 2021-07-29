@@ -26,7 +26,7 @@ public class TaskReceiver extends BroadcastReceiver {
         // TODO: This method is called when the BroadcastReceiver is receiving
 
         int reqCode = intent.getIntExtra("requestCode", 0);
-        String task = intent.getStringExtra("task");
+        String task = intent.getStringExtra("name");
 
         NotificationManager notificationManager = (NotificationManager)
                 context.getSystemService(NOTIFICATION_SERVICE);
