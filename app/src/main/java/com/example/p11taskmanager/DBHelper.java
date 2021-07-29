@@ -31,7 +31,19 @@ public class DBHelper extends SQLiteOpenHelper {
                 + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_NAME + " TEXT,"
                 + COLUMN_DESCRIPTION + " TEXT )";
+        ContentValues values = new ContentValues();
+
+        values.put(COLUMN_NAME,"Buy Milk");
+        values.put(COLUMN_DESCRIPTION, "Low fat");
+
+        ContentValues values2 = new ContentValues();
+
+        values2.put(COLUMN_NAME,"Post letters");
+        values2.put(COLUMN_DESCRIPTION, "Get stamps from car");
+
         db.execSQL(createTableSql);
+        db.insert(TABLE_TASK, null, values);
+        db.insert(TABLE_TASK, null, values2);
         Log.i("info" ,"created tables");
     }
 
@@ -77,9 +89,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
         // moveToFirst() moves to first row, null if no records
         if (cursor.moveToFirst()) {
-            // Loop while moveToNext() points to next row
-            //  and returns true; moveToNext() returns false
-            //  when no more next row to move to
             do {
                 // Add the task content to the ArrayList object
                 //  getString(0) retrieves first column data
