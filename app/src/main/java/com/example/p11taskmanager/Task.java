@@ -1,6 +1,8 @@
 package com.example.p11taskmanager;
 
-public class Task {
+import java.io.Serializable;
+
+public class Task implements Serializable {
     private int id;
     private String description;
     private String name;
@@ -19,7 +21,7 @@ public class Task {
         return description;
     }
 
-    public String getDate() {
+    public String getName() {
         return name;
     }
 }
