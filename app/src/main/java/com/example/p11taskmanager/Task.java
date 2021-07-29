@@ -27,6 +27,6 @@ public class Task implements Serializable {
 
     @Override
     public String toString() {
-        return id + name +"\n" + description;
+        return (id + 1) + " " + name + "\n" + description;
     }
 }
