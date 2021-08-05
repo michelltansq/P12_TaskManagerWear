@@ -1,2 +1,3 @@
 rootProject.name = "P11 Task Manager"
 include ':app'
+include ':wear'

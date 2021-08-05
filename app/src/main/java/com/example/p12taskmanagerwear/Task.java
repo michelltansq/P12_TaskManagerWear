@@ -1,4 +1,4 @@
-package com.example.p11taskmanager;
+package com.example.p12taskmanagerwear;
 
 import java.io.Serializable;
 

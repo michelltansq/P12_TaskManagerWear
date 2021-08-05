@@ -1,4 +1,4 @@
-package com.example.p11taskmanager;
+package com.example.p12taskmanagerwear;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 public class AddActivity extends AppCompatActivity {
@@ -67,6 +66,7 @@ public class AddActivity extends AppCompatActivity {
                                 TaskReceiver.class);
                         intent.putExtra("reqCode", reqCode);
                         intent.putExtra("name", name);
+                        intent.putExtra("description", description);
 
                         PendingIntent pendingIntent = PendingIntent.getBroadcast(
                                 AddActivity.this, reqCode,
